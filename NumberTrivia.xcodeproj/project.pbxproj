@@ -11,8 +11,10 @@
 		4016A4FB2630739400018420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4FA2630739400018420 /* ContentView.swift */; };
 		4016A4FD2630739400018420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FC2630739400018420 /* Assets.xcassets */; };
 		4016A5002630739400018420 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FF2630739400018420 /* Preview Assets.xcassets */; };
-		4016A50B2630739400018420 /* NumberTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A50A2630739400018420 /* NumberTriviaTests.swift */; };
-		4016A5162630739400018420 /* NumberTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A5152630739400018420 /* NumberTriviaUITests.swift */; };
+		4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A52D26307B1400018420 /* NumberTrivia.swift */; };
+		4052B84326307ECF004A88A5 /* NumberTriviaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */; };
+		4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */; };
+		4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84B26308A77004A88A5 /* NumberTriviaError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +42,12 @@
 		4016A4FF2630739400018420 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4016A5012630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4016A5062630739400018420 /* NumberTriviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTriviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4016A50A2630739400018420 /* NumberTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaTests.swift; sourceTree = "<group>"; };
 		4016A50C2630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4016A5112630739400018420 /* NumberTriviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTriviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4016A5152630739400018420 /* NumberTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaUITests.swift; sourceTree = "<group>"; };
-		4016A5172630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4016A52D26307B1400018420 /* NumberTrivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTrivia.swift; sourceTree = "<group>"; };
+		4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepository.swift; sourceTree = "<group>"; };
+		4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaTests.swift; sourceTree = "<group>"; };
+		4052B84B26308A77004A88A5 /* NumberTriviaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +80,6 @@
 			children = (
 				4016A4F72630739400018420 /* NumberTrivia */,
 				4016A5092630739400018420 /* NumberTriviaTests */,
-				4016A5142630739400018420 /* NumberTriviaUITests */,
 				4016A4F62630739400018420 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +97,10 @@
 		4016A4F72630739400018420 /* NumberTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				4052B84A26308A69004A88A5 /* Core */,
+				4016A52526307A0D00018420 /* Presentation */,
+				4016A52426307A0900018420 /* Data */,
+				4016A52326307A0300018420 /* Domain */,
 				4016A4F82630739400018420 /* NumberTriviaApp.swift */,
 				4016A4FA2630739400018420 /* ContentView.swift */,
 				4016A4FC2630739400018420 /* Assets.xcassets */,
@@ -115,19 +121,129 @@
 		4016A5092630739400018420 /* NumberTriviaTests */ = {
 			isa = PBXGroup;
 			children = (
-				4016A50A2630739400018420 /* NumberTriviaTests.swift */,
+				4052B8452630829F004A88A5 /* Data */,
+				4052B8442630829A004A88A5 /* Domain */,
 				4016A50C2630739400018420 /* Info.plist */,
 			);
 			path = NumberTriviaTests;
 			sourceTree = "<group>";
 		};
-		4016A5142630739400018420 /* NumberTriviaUITests */ = {
+		4016A52326307A0300018420 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				4016A5152630739400018420 /* NumberTriviaUITests.swift */,
-				4016A5172630739400018420 /* Info.plist */,
+				4016A52C26307AEE00018420 /* UseCases */,
+				4016A52B26307AC300018420 /* Repositories */,
+				4016A52A26307AB100018420 /* Entities */,
 			);
-			path = NumberTriviaUITests;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4016A52426307A0900018420 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4016A52926307A5400018420 /* Repositories */,
+				4016A52826307A4600018420 /* DataSources */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4016A52526307A0D00018420 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4016A52626307A2100018420 /* Views */,
+				4016A52726307A2F00018420 /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4016A52626307A2100018420 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4016A52726307A2F00018420 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4016A52826307A4600018420 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		4016A52926307A5400018420 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		4016A52A26307AB100018420 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4016A52D26307B1400018420 /* NumberTrivia.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4016A52B26307AC300018420 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		4016A52C26307AEE00018420 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		4052B8442630829A004A88A5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4052B847263082B0004A88A5 /* UseCases */,
+				4052B846263082A8004A88A5 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4052B8452630829F004A88A5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4052B846263082A8004A88A5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		4052B847263082B0004A88A5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		4052B84A26308A69004A88A5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4052B84B26308A77004A88A5 /* NumberTriviaError.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +375,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */,
 				4016A4FB2630739400018420 /* ContentView.swift in Sources */,
 				4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */,
+				4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */,
+				4052B84326307ECF004A88A5 /* NumberTriviaRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4016A50B2630739400018420 /* NumberTriviaTests.swift in Sources */,
+				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4016A5162630739400018420 /* NumberTriviaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

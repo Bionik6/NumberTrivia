@@ -89,18 +89,22 @@ final class NumberTriviaRepositoryMock: NumberTriviaRepository {
   
   // MARK: - getRandomNumberTrivia
   
-  var getRandomNumberTriviaNumberResponseCallsCount = 0
-  var getRandomNumberTriviaNumberResponseCalled: Bool {
-    getRandomNumberTriviaNumberResponseCallsCount > 0
+  var getRandomNumberTriviaResponseCallsCount = 0
+  var getRandomNumberTriviaResponseCalled: Bool {
+    getRandomNumberTriviaResponseCallsCount > 0
   }
-  var getRandomNumberTriviaNumberResponseReceivedArguments: (number: Int, response: NumberTriviaResponse)?
-  var getRandomNumberTriviaNumberResponseReceivedInvocations: [(number: Int, response: NumberTriviaResponse)] = []
-  var getRandomNumberTriviaNumberResponseClosure: ((Int, @escaping NumberTriviaResponse) -> Void)?
+  var getRandomNumberTriviaResponseReceivedResponse: NumberTriviaResponse?
+  var getRandomNumberTriviaResponseReceivedInvocations: [NumberTriviaResponse] = []
+  var getRandomNumberTriviaResponseClosure: ((@escaping NumberTriviaResponse) -> Void)?
   
-  func getRandomNumberTrivia(number: Int, response: @escaping NumberTriviaResponse) {
-    getRandomNumberTriviaNumberResponseCallsCount += 1
-    getRandomNumberTriviaNumberResponseReceivedArguments = (number: number, response: response)
-    getRandomNumberTriviaNumberResponseReceivedInvocations.append((number: number, response: response))
-    getRandomNumberTriviaNumberResponseClosure?(number, response)
+  func getRandomNumberTrivia(response: @escaping NumberTriviaResponse) {
+    numberTrivia = NumberTrivia(number: 10, text: "test")
+    response(.success(numberTrivia!))
+    self.response = .success(numberTrivia!)
+    
+    getRandomNumberTriviaResponseCallsCount += 1
+    getRandomNumberTriviaResponseReceivedResponse = response
+    getRandomNumberTriviaResponseReceivedInvocations.append(response)
+    getRandomNumberTriviaResponseClosure?(response)
   }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 typealias NumberTriviaResponse = (Result<NumberTrivia, NumberTriviaError>) -> Void
 
+struct NoParam { }
+
 protocol UseCase {
   
   associatedtype T

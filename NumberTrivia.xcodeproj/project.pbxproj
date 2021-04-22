@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		40164C2E2631906D00C90F61 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2D2631906D00C90F61 /* UseCase.swift */; };
-		40164C302631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */; };
+		40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2F2631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift */; };
 		40164C3226319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */; };
+		40164C342631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */; };
 		4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4F82630739400018420 /* NumberTriviaApp.swift */; };
 		4016A4FB2630739400018420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4FA2630739400018420 /* ContentView.swift */; };
 		4016A4FD2630739400018420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FC2630739400018420 /* Assets.xcassets */; };
@@ -32,8 +33,9 @@
 
 /* Begin PBXFileReference section */
 		40164C2D2631906D00C90F61 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteRandomTriviaUseCaseTests.swift; sourceTree = "<group>"; };
+		40164C2F2631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberTriviaUseCaseTests.swift; sourceTree = "<group>"; };
 		40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaUseCase.swift; sourceTree = "<group>"; };
+		40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberTriviaUseCase.swift; sourceTree = "<group>"; };
 		4016A4F52630739400018420 /* NumberTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A4F82630739400018420 /* NumberTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaApp.swift; sourceTree = "<group>"; };
 		4016A4FA2630739400018420 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */,
+				40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -241,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */,
-				40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */,
+				40164C2F2631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */,
 				4016A4FB2630739400018420 /* ContentView.swift in Sources */,
 				4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */,
+				40164C342631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift in Sources */,
 				40164C3226319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift in Sources */,
 				40164C2E2631906D00C90F61 /* UseCase.swift in Sources */,
 				4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */,
@@ -369,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
-				40164C302631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift in Sources */,
+				40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

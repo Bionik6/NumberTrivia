@@ -8,13 +8,11 @@
 import Foundation
 
 struct NumberTriviaParam {
-  
   private(set) var value: Int
   
   init(value: Int) {
     self.value = value
   }
-  
 }
 
 
@@ -29,7 +27,7 @@ class GetConcreteNumberTriviaUseCase: UseCase {
     self.repository = repository
   }
   
-  func callAsFunction(params: NumberTriviaParam, completion: @escaping (Result<NumberTrivia, NumberTriviaError>) -> Void) {
+  func callAsFunction(params: NumberTriviaParam, completion: @escaping NumberTriviaResponse) {
     repository.getConcreteNumberTrivia(number: params.value) { completion($0) }
   }
   

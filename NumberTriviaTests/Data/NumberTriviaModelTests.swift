@@ -8,7 +8,7 @@
 import XCTest
 @testable import NumberTrivia
 
-struct NumberTriviaModel: NumberTriviaProtocol {
+struct NumberTriviaModel: NumberTriviaProtocol, Decodable {
   var number: Int
   var text: String
 }
@@ -27,6 +27,8 @@ class NumberTriviaModelTests: XCTestCase {
   
   func test_sut_is_instance_of_NumberTrivia() {
     XCTAssertTrue((sut as Any) is NumberTriviaProtocol)
+    XCTAssertTrue((sut as Any) is Decodable)
   }
+  
   
 }

@@ -7,10 +7,15 @@
 
 import Foundation
 
-struct NumberTrivia: Equatable {
+protocol NumberTriviaProtocol {
+  var number: Int { get }
+  var text: String { get }
+}
+
+struct NumberTrivia: NumberTriviaProtocol, Equatable {
   
-  private let number: Int
-  private let text: String
+  private(set) var number: Int
+  private(set) var text: String
 
   init(number: Int, text: String) {
     self.number = number

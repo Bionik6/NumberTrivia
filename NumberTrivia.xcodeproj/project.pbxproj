@@ -11,6 +11,8 @@
 		40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2F2631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift */; };
 		40164C3226319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */; };
 		40164C342631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */; };
+		40164C372631D41400C90F61 /* Trivia.json in Resources */ = {isa = PBXBuildFile; fileRef = 40164C362631D41400C90F61 /* Trivia.json */; };
+		40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */; };
 		4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4F82630739400018420 /* NumberTriviaApp.swift */; };
 		4016A4FB2630739400018420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4FA2630739400018420 /* ContentView.swift */; };
 		4016A4FD2630739400018420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FC2630739400018420 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 		40164C2F2631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberTriviaUseCaseTests.swift; sourceTree = "<group>"; };
 		40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaUseCase.swift; sourceTree = "<group>"; };
 		40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberTriviaUseCase.swift; sourceTree = "<group>"; };
+		40164C362631D41400C90F61 /* Trivia.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trivia.json; sourceTree = "<group>"; };
+		40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaModelTests.swift; sourceTree = "<group>"; };
 		4016A4F52630739400018420 /* NumberTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A4F82630739400018420 /* NumberTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaApp.swift; sourceTree = "<group>"; };
 		4016A4FA2630739400018420 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		40164C352631D3E100C90F61 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				40164C362631D41400C90F61 /* Trivia.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		4016A4EC2630739400018420 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +141,7 @@
 		4016A5092630739400018420 /* NumberTriviaTests */ = {
 			isa = PBXGroup;
 			children = (
+				40164C352631D3E100C90F61 /* Fixtures */,
 				4052B8452630829F004A88A5 /* Data */,
 				4052B8442630829A004A88A5 /* Domain */,
 				4016A50C2630739400018420 /* Info.plist */,
@@ -229,6 +242,7 @@
 		4052B8452630829F004A88A5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -347,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40164C372631D41400C90F61 /* Trivia.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */,
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
 				40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */,
 			);

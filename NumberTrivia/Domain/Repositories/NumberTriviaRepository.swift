@@ -7,12 +7,7 @@
 
 import Foundation
 
-typealias NumberTriviaResponse = (Result<NumberTrivia, NumberTriviaError>) -> Void
-
 protocol NumberTriviaRepository {
   func getConcreteNumberTrivia(number: Int, response: @escaping NumberTriviaResponse)
   func getRandomNumberTrivia(number: Int, response: @escaping NumberTriviaResponse)
 }
-
-
-

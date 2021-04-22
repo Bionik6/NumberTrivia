@@ -9,38 +9,25 @@ import XCTest
 @testable import NumberTrivia
 
 
-class GetConcreteNumberTrivia {
-  
-  private let repository: NumberTriviaRepository
-  
-  init(repository: NumberTriviaRepository) {
-    self.repository = repository
-  }
-  
-  func callAsFunction(number: Int, completion: @escaping (Result<NumberTrivia, NumberTriviaError>) -> Void) {
-    repository.getConcreteNumberTrivia(number: number) { completion($0) }
-  }
-}
-
-
-class GetConcreteNumberTriviaTests: XCTestCase {
+class GetConcreteNumberTriviaUseCaseTests: XCTestCase {
   
   private var tNumber = 2
   private var tNumberTrivia: NumberTrivia!
-  private var useCase: GetConcreteNumberTrivia!
-  private var mockNumberTriviaRepository: NumberTriviaRepositoryMock!
+  private var useCase: GetConcreteNumberTriviaUseCase!
   private var result: Result<NumberTrivia, NumberTriviaError>?
+  private var mockNumberTriviaRepository: NumberTriviaRepositoryMock!
   
   override func setUpWithError() throws {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
     mockNumberTriviaRepository = NumberTriviaRepositoryMock()
     tNumberTrivia = NumberTrivia(number: tNumber, text: "test")
-    useCase = GetConcreteNumberTrivia(repository: mockNumberTriviaRepository)
+    useCase = GetConcreteNumberTriviaUseCase(repository: mockNumberTriviaRepository)
   }
   
   override func tearDownWithError() throws {
-    mockNumberTriviaRepository = nil
+    result = nil
     useCase = nil
+    tNumberTrivia = nil
+    mockNumberTriviaRepository = nil
   }
   
   func testSutShouldGetNumberTriviaFromRepository() {
@@ -48,23 +35,23 @@ class GetConcreteNumberTriviaTests: XCTestCase {
     let expectation = expectation(description: #function)
     
     // When
-    useCase(number: tNumber) { response in
-      self.result = response
-    }
+    useCase(params: NumberTriviaParam(value: tNumber)) { self.result = $0 }
     
     // Then
     XCTAssertEqual(mockNumberTriviaRepository.numberTrivia, tNumberTrivia)
-    XCTAssertEqual(mockNumberTriviaRepository.getConcreteNumberTriviaNumberResponseCallsCount, 1)
     XCTAssertEqual(mockNumberTriviaRepository.getConcreteNumberTriviaNumberResponseCalled, true)
+    XCTAssertEqual(mockNumberTriviaRepository.getConcreteNumberTriviaNumberResponseCallsCount, 1)
     
     // When
-    useCase(number: tNumber) { _ in expectation.fulfill() }
+    useCase(params: NumberTriviaParam(value: tNumber)) { _ in expectation.fulfill() }
     
     // Then
+    waitForExpectations(timeout: 1)
+    
+    XCTAssertEqual(result, .success(tNumberTrivia))
+    XCTAssertEqual(mockNumberTriviaRepository.response, .success(tNumberTrivia))
     XCTAssertEqual(mockNumberTriviaRepository.getConcreteNumberTriviaNumberResponseCallsCount, 2)
     XCTAssertEqual(mockNumberTriviaRepository.getConcreteNumberTriviaNumberResponseReceivedArguments?.number, tNumber)
-    XCTAssertEqual(mockNumberTriviaRepository.response, .success(tNumberTrivia))
-    waitForExpectations(timeout: 1)
   }
   
 }

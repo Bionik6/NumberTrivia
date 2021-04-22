@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40164C2E2631906D00C90F61 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2D2631906D00C90F61 /* UseCase.swift */; };
+		40164C302631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */; };
+		40164C3226319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */; };
 		4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4F82630739400018420 /* NumberTriviaApp.swift */; };
 		4016A4FB2630739400018420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A4FA2630739400018420 /* ContentView.swift */; };
 		4016A4FD2630739400018420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FC2630739400018420 /* Assets.xcassets */; };
@@ -25,16 +28,12 @@
 			remoteGlobalIDString = 4016A4F42630739400018420;
 			remoteInfo = NumberTrivia;
 		};
-		4016A5122630739400018420 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4016A4ED2630739400018420 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4016A4F42630739400018420;
-			remoteInfo = NumberTrivia;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40164C2D2631906D00C90F61 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteRandomTriviaUseCaseTests.swift; sourceTree = "<group>"; };
+		40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaUseCase.swift; sourceTree = "<group>"; };
 		4016A4F52630739400018420 /* NumberTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A4F82630739400018420 /* NumberTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaApp.swift; sourceTree = "<group>"; };
 		4016A4FA2630739400018420 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,7 +42,6 @@
 		4016A5012630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4016A5062630739400018420 /* NumberTriviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTriviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A50C2630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4016A5112630739400018420 /* NumberTriviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTriviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A52D26307B1400018420 /* NumberTrivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTrivia.swift; sourceTree = "<group>"; };
 		4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepository.swift; sourceTree = "<group>"; };
 		4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaTests.swift; sourceTree = "<group>"; };
@@ -65,16 +63,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4016A50E2630739400018420 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40164C2B2631904C00C90F61 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				4052B84B26308A77004A88A5 /* NumberTriviaError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		40164C2C2631905C00C90F61 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				40164C2D2631906D00C90F61 /* UseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		4016A4EC2630739400018420 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +96,6 @@
 			children = (
 				4016A4F52630739400018420 /* NumberTrivia.app */,
 				4016A5062630739400018420 /* NumberTriviaTests.xctest */,
-				4016A5112630739400018420 /* NumberTriviaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 		4016A52C26307AEE00018420 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				40164C3126319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -234,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */,
+				40164C2F2631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -241,7 +249,8 @@
 		4052B84A26308A69004A88A5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4052B84B26308A77004A88A5 /* NumberTriviaError.swift */,
+				40164C2C2631905C00C90F61 /* UseCases */,
+				40164C2B2631904C00C90F61 /* Errors */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -284,24 +293,6 @@
 			productReference = 4016A5062630739400018420 /* NumberTriviaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4016A5102630739400018420 /* NumberTriviaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4016A5202630739400018420 /* Build configuration list for PBXNativeTarget "NumberTriviaUITests" */;
-			buildPhases = (
-				4016A50D2630739400018420 /* Sources */,
-				4016A50E2630739400018420 /* Frameworks */,
-				4016A50F2630739400018420 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4016A5132630739400018420 /* PBXTargetDependency */,
-			);
-			name = NumberTriviaUITests;
-			productName = NumberTriviaUITests;
-			productReference = 4016A5112630739400018420 /* NumberTriviaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,10 +306,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					4016A5052630739400018420 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 4016A4F42630739400018420;
-					};
-					4016A5102630739400018420 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 4016A4F42630739400018420;
 					};
@@ -339,7 +326,6 @@
 			targets = (
 				4016A4F42630739400018420 /* NumberTrivia */,
 				4016A5052630739400018420 /* NumberTriviaTests */,
-				4016A5102630739400018420 /* NumberTriviaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -361,13 +347,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4016A50F2630739400018420 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -378,6 +357,8 @@
 				4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */,
 				4016A4FB2630739400018420 /* ContentView.swift in Sources */,
 				4016A4F92630739400018420 /* NumberTriviaApp.swift in Sources */,
+				40164C3226319B5400C90F61 /* GetConcreteNumberTriviaUseCase.swift in Sources */,
+				40164C2E2631906D00C90F61 /* UseCase.swift in Sources */,
 				4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */,
 				4052B84326307ECF004A88A5 /* NumberTriviaRepository.swift in Sources */,
 			);
@@ -388,13 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4016A50D2630739400018420 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				40164C302631940B00C90F61 /* GetConcreteRandomTriviaUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,11 +380,6 @@
 			isa = PBXTargetDependency;
 			target = 4016A4F42630739400018420 /* NumberTrivia */;
 			targetProxy = 4016A5072630739400018420 /* PBXContainerItemProxy */;
-		};
-		4016A5132630739400018420 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4016A4F42630739400018420 /* NumberTrivia */;
-			targetProxy = 4016A5122630739400018420 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -618,46 +588,6 @@
 			};
 			name = Release;
 		};
-		4016A5212630739400018420 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				INFOPLIST_FILE = NumberTriviaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.ibrahima.NumberTriviaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NumberTrivia;
-			};
-			name = Debug;
-		};
-		4016A5222630739400018420 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				INFOPLIST_FILE = NumberTriviaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.ibrahima.NumberTriviaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NumberTrivia;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -684,15 +614,6 @@
 			buildConfigurations = (
 				4016A51E2630739400018420 /* Debug */,
 				4016A51F2630739400018420 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4016A5202630739400018420 /* Build configuration list for PBXNativeTarget "NumberTriviaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4016A5212630739400018420 /* Debug */,
-				4016A5222630739400018420 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

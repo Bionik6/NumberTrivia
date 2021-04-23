@@ -28,6 +28,8 @@
 		40637B6C263328FE00CD3F8D /* NumberTriviaRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B6B263328FE00CD3F8D /* NumberTriviaRemoteDataSource.swift */; };
 		40637B6E2633291800CD3F8D /* NumberTriviaLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B6D2633291800CD3F8D /* NumberTriviaLocalDataSource.swift */; };
 		40637B712633297500CD3F8D /* NumberTriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B702633297500CD3F8D /* NumberTriviaModel.swift */; };
+		40637B73263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */; };
+		40637B752633312500CD3F8D /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B742633312500CD3F8D /* Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		40637B6B263328FE00CD3F8D /* NumberTriviaRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRemoteDataSource.swift; sourceTree = "<group>"; };
 		40637B6D2633291800CD3F8D /* NumberTriviaLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaLocalDataSource.swift; sourceTree = "<group>"; };
 		40637B702633297500CD3F8D /* NumberTriviaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaModel.swift; sourceTree = "<group>"; };
+		40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepositoryImplementationTests.swift; sourceTree = "<group>"; };
+		40637B742633312500CD3F8D /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,7 +266,9 @@
 		4052B8452630829F004A88A5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				40637B742633312500CD3F8D /* Mocks.swift */,
 				40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */,
+				40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -433,7 +439,9 @@
 				40164C3D2631DD6500C90F61 /* FixtureLoader.swift in Sources */,
 				40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */,
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
+				40637B73263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift in Sources */,
 				40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */,
+				40637B752633312500CD3F8D /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

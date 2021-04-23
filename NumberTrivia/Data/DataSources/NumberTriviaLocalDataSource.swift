@@ -15,4 +15,3 @@ protocol NumberTriviaLocalDataSource {
   func getLastNumberTrivia(completion: @escaping (Result<NumberTriviaModel, CachingError>) -> ())
   func cache(numberTrivia: NumberTriviaModel, completion: @escaping () -> ())
 }
-

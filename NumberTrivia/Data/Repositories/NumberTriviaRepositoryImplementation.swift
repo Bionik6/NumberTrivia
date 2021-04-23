@@ -17,5 +17,6 @@ final class NumberTriviaRepositoryImplementation: NumberTriviaRepository {
     
   }
   
-  
 }
+
+

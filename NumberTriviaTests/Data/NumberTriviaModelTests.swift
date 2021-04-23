@@ -8,21 +8,6 @@
 import XCTest
 @testable import NumberTrivia
 
-struct NumberTriviaModel: NumberTriviaProtocol, Codable {
-  
-  var number: Double
-  var text: String
-  
-  func toJSON() -> String {
-    let jsonEncoder = JSONEncoder()
-    guard let data = try? jsonEncoder.encode(self),
-          let string = String(data: data, encoding: .utf8)
-    else { fatalError("Could not encode data") }
-    return string
-  }
-  
-}
-
 class NumberTriviaModelTests: XCTestCase {
   
   private var sut: NumberTriviaModel!
@@ -50,6 +35,5 @@ class NumberTriviaModelTests: XCTestCase {
     let json = sut.toJSON()
     XCTAssertEqual(json, "{\"number\":1,\"text\":\"hello\"}")
   }
-  
   
 }

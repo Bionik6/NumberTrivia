@@ -8,9 +8,9 @@
 import Foundation
 
 struct NumberTriviaParam {
-  private(set) var value: Int
+  private(set) var value: Double
   
-  init(value: Int) {
+  init(value: Double) {
     self.value = value
   }
 }

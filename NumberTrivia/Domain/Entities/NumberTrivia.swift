@@ -8,16 +8,16 @@
 import Foundation
 
 protocol NumberTriviaProtocol {
-  var number: Int { get }
+  var number: Double { get }
   var text: String { get }
 }
 
 struct NumberTrivia: NumberTriviaProtocol, Equatable {
   
-  private(set) var number: Int
+  private(set) var number: Double
   private(set) var text: String
 
-  init(number: Int, text: String) {
+  init(number: Double, text: String) {
     self.number = number
     self.text = text
   }

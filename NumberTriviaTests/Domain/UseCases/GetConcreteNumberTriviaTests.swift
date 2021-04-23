@@ -11,7 +11,7 @@ import XCTest
 
 class GetConcreteNumberTriviaUseCaseTests: XCTestCase {
   
-  private var tNumber = 2
+  private var tNumber: Double = 2.0
   private var tNumberTrivia: NumberTrivia!
   private var useCase: GetConcreteNumberTriviaUseCase!
   private var result: Result<NumberTrivia, NumberTriviaError>?
@@ -56,9 +56,6 @@ class GetConcreteNumberTriviaUseCaseTests: XCTestCase {
   
 }
 
-// Adresse: Ngor Almadies, Villa Nº593, Dakar
-
-
 // MARK: - NumberTriviaRepositoryMock -
 
 final class NumberTriviaRepositoryMock: NumberTriviaRepository {
@@ -72,11 +69,11 @@ final class NumberTriviaRepositoryMock: NumberTriviaRepository {
   var getConcreteNumberTriviaNumberResponseCalled: Bool {
     getConcreteNumberTriviaNumberResponseCallsCount > 0
   }
-  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Int, response: NumberTriviaResponse)?
-  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Int, response: NumberTriviaResponse)] = []
-  var getConcreteNumberTriviaNumberResponseClosure: ((Int, @escaping NumberTriviaResponse) -> Void)?
+  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Double, response: NumberTriviaResponse)?
+  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Double, response: NumberTriviaResponse)] = []
+  var getConcreteNumberTriviaNumberResponseClosure: ((Double, @escaping NumberTriviaResponse) -> Void)?
   
-  func getConcreteNumberTrivia(number: Int, response: @escaping NumberTriviaResponse) {
+  func getConcreteNumberTrivia(number: Double, response: @escaping NumberTriviaResponse) {
     numberTrivia = NumberTrivia(number: number, text: "test")
     response(.success(numberTrivia!))
     self.response = .success(numberTrivia!)

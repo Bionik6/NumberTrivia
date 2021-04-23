@@ -9,7 +9,7 @@ import XCTest
 @testable import NumberTrivia
 
 struct NumberTriviaModel: NumberTriviaProtocol, Decodable {
-  var number: Int
+  var number: Double
   var text: String
 }
 

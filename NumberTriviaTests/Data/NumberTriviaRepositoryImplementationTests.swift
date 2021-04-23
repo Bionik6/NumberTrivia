@@ -10,26 +10,47 @@ import XCTest
 
 class NumberTriviaRepositoryImplementationTests: XCTestCase {
   
-  private var numberTriviaRepositoryImplementation: NumberTriviaRepositoryImplementation!
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  private var sut: NumberTriviaRepositoryImplementation!
+  private var networkInfo: NetworkInfoMock!
+  private var localDataSource: NumberTriviaLocalDataSourceMock!
+  private var remoteDataSource: NumberTriviaRemoteDataSourceMock!
+  
+  private let tNumber = 1.0
+  private var tNumberTriviaModel: NumberTriviaModel!
+  private var tNumberTrivia: NumberTrivia!
+  
+  override func setUpWithError() throws {
+    networkInfo = NetworkInfoMock()
+    localDataSource = NumberTriviaLocalDataSourceMock()
+    remoteDataSource = NumberTriviaRemoteDataSourceMock()
+    sut = NumberTriviaRepositoryImplementation(
+      networkInfo: networkInfo,
+      remoteDataSource: remoteDataSource,
+      localDataSource: localDataSource
+    )
+    
+    tNumberTriviaModel = NumberTriviaModel(number: tNumber, text: "test trivia")
+    tNumberTrivia = NumberTrivia(number: tNumber, text: "test trivia")
+  }
+  
+  override func tearDownWithError() throws {
+    networkInfo = nil
+    localDataSource = nil
+    remoteDataSource = nil
+    sut = nil
+    
+    tNumberTrivia = nil
+    tNumberTriviaModel = nil
+  }
+  
+  func test_sut_should_check_if_the_device_is_online() {
+    let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = true
+    sut.getConcreteNumberTrivia(number: tNumber) { _ in
+      promise.fulfill()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    wait(for: [promise], timeout: 1.0)
+    XCTAssertEqual(networkInfo.isConnected, true)
+  }
+  
 }

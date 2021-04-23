@@ -69,19 +69,19 @@ final class NumberTriviaRepositoryMock: NumberTriviaRepository {
   var getConcreteNumberTriviaNumberResponseCalled: Bool {
     getConcreteNumberTriviaNumberResponseCallsCount > 0
   }
-  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Double, response: NumberTriviaResponse)?
-  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Double, response: NumberTriviaResponse)] = []
+  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Double, completion: NumberTriviaResponse)?
+  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Double, completion: NumberTriviaResponse)] = []
   var getConcreteNumberTriviaNumberResponseClosure: ((Double, @escaping NumberTriviaResponse) -> Void)?
   
-  func getConcreteNumberTrivia(number: Double, response: @escaping NumberTriviaResponse) {
+  func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaResponse) {
     numberTrivia = NumberTrivia(number: number, text: "test")
-    response(.success(numberTrivia!))
+    completion(.success(numberTrivia!))
     self.response = .success(numberTrivia!)
 
     getConcreteNumberTriviaNumberResponseCallsCount += 1
-    getConcreteNumberTriviaNumberResponseReceivedArguments = (number: number, response: response)
-    getConcreteNumberTriviaNumberResponseReceivedInvocations.append((number: number, response: response))
-    getConcreteNumberTriviaNumberResponseClosure?(number, response)
+    getConcreteNumberTriviaNumberResponseReceivedArguments = (number: number, completion: completion)
+    getConcreteNumberTriviaNumberResponseReceivedInvocations.append((number: number, completion: completion))
+    getConcreteNumberTriviaNumberResponseClosure?(number, completion)
   }
   
   // MARK: - getRandomNumberTrivia
@@ -94,14 +94,14 @@ final class NumberTriviaRepositoryMock: NumberTriviaRepository {
   var getRandomNumberTriviaResponseReceivedInvocations: [NumberTriviaResponse] = []
   var getRandomNumberTriviaResponseClosure: ((@escaping NumberTriviaResponse) -> Void)?
   
-  func getRandomNumberTrivia(response: @escaping NumberTriviaResponse) {
+  func getRandomNumberTrivia(completion: @escaping NumberTriviaResponse) {
     numberTrivia = NumberTrivia(number: 10, text: "test")
-    response(.success(numberTrivia!))
+    completion(.success(numberTrivia!))
     self.response = .success(numberTrivia!)
     
     getRandomNumberTriviaResponseCallsCount += 1
-    getRandomNumberTriviaResponseReceivedResponse = response
-    getRandomNumberTriviaResponseReceivedInvocations.append(response)
-    getRandomNumberTriviaResponseClosure?(response)
+    getRandomNumberTriviaResponseReceivedResponse = completion
+    getRandomNumberTriviaResponseReceivedInvocations.append(completion)
+    getRandomNumberTriviaResponseClosure?(completion)
   }
 }

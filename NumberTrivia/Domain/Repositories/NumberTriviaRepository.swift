@@ -8,6 +8,6 @@
 import Foundation
 
 protocol NumberTriviaRepository {
-  func getRandomNumberTrivia(response: @escaping NumberTriviaResponse)
-  func getConcreteNumberTrivia(number: Double, response: @escaping NumberTriviaResponse)
+  func getRandomNumberTrivia(completion: @escaping NumberTriviaResponse)
+  func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaResponse)
 }

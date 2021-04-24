@@ -9,4 +9,5 @@ import Foundation
 
 enum NumberTriviaError: Error, Equatable {
   case basic
+  case noCacheDataPresent
 }

@@ -41,9 +41,11 @@ class NumberTriviaRepositoryImplementationTests: XCTestCase {
     tNumberTriviaModel = nil
   }
   
+  // - MARK: - Online Test
   
   func test_sut_should_return_remote_data_when_the_call_to_remote_dataSource_is_successful() {
     let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = true
     remoteDataSource.getConcreteNumberTriviaNumberCompletionClosure = { (number: Double, completion: NumberTriviaRemoteResult) in
       let numberTrivia = NumberTriviaModel(number: number, text: "hello")
       completion(.success(numberTrivia))
@@ -60,6 +62,7 @@ class NumberTriviaRepositoryImplementationTests: XCTestCase {
   
   func test_sut_cache_data_locally_when_the_call_to_remote_data_source_is_successful() {
     let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = true
     remoteDataSource.getConcreteNumberTriviaNumberCompletionClosure = { (number: Double, completion: NumberTriviaRemoteResult) in
       let numberTrivia = NumberTriviaModel(number: number, text: "hello")
        completion(.success(numberTrivia))
@@ -76,6 +79,7 @@ class NumberTriviaRepositoryImplementationTests: XCTestCase {
   
   func test_sut_should_return_error_when_the_call_to_remote_dataSource_is_unsuccessful() {
     let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = true
     remoteDataSource.getConcreteNumberTriviaNumberCompletionClosure = { (number: Double, completion: NumberTriviaRemoteResult) in
       completion(.failure(.serverFailure))
     }
@@ -92,5 +96,50 @@ class NumberTriviaRepositoryImplementationTests: XCTestCase {
   // => Sut should return remote data when the call to remote data source is successful
   // => Sut should cache the data locally when the call to remote data source is successful
   // => Sut should return error when the call to remote data source is unsuccessful
+  
+  
+  // Device is offline
+  // => Should return last locally cached data when the cached data is present
+  
+  // - MARK: - Offline Test
+  
+  func test_sut_should_return_last_cached_data_when_the_cached_data_is_present() {
+    let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = false
+    localDataSource.getLastNumberTriviaCompletionClosure = { completion in
+      completion(.success(self.tNumberTriviaModel))
+    }
+    
+    sut.getConcreteNumberTrivia(number: tNumber) { result in
+      if case .success(let numberTrivia) = result {
+        XCTAssertEqual(numberTrivia.number, 1)
+        XCTAssertEqual(numberTrivia.text, "test trivia")
+      }
+      promise.fulfill()
+    }
+    
+    wait(for: [promise], timeout: 1.0)
+    XCTAssertEqual(localDataSource.getLastNumberTriviaCompletionCalled, true)
+    XCTAssertEqual(localDataSource.getLastNumberTriviaCompletionCallsCount, 1)
+  }
+  
+  func test_sut_should_return_error_when_there_is_no_cached_data_present() {
+    let promise = XCTestExpectation(description: #function)
+    networkInfo.isConnected = false
+    localDataSource.getLastNumberTriviaCompletionClosure = { completion in
+      completion(.failure(.noDataPresent))
+    }
+    
+    sut.getConcreteNumberTrivia(number: tNumber) { result in
+      if case .failure(let error) = result {
+        XCTAssertEqual(error, .noCacheDataPresent)
+      }
+      promise.fulfill()
+    }
+    
+    wait(for: [promise], timeout: 1.0)
+    XCTAssertEqual(localDataSource.getLastNumberTriviaCompletionCalled, true)
+    XCTAssertEqual(localDataSource.getLastNumberTriviaCompletionCallsCount, 1)
+  }
   
 }

@@ -21,6 +21,46 @@ final class NetworkInfoMock: NetworkInfo {
 }
 
 
+// MARK: - NumberTriviaRepositoryMock -
+
+final class NumberTriviaRepositoryMock: NumberTriviaRepository {
+  
+  // MARK: - getConcreteNumberTrivia
+  var getConcreteNumberTriviaNumberResponseCallsCount = 0
+  var getConcreteNumberTriviaNumberResponseCalled: Bool {
+    getConcreteNumberTriviaNumberResponseCallsCount > 0
+  }
+  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Double, completion: NumberTriviaResponse)?
+  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Double, completion: NumberTriviaResponse)] = []
+  var getConcreteNumberTriviaNumberResponseClosure: ((Double, @escaping NumberTriviaResponse) -> Void)?
+  
+  func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaResponse) {
+    getConcreteNumberTriviaNumberResponseCallsCount += 1
+    getConcreteNumberTriviaNumberResponseReceivedArguments = (number: number, completion: completion)
+    getConcreteNumberTriviaNumberResponseReceivedInvocations.append((number: number, completion: completion))
+    getConcreteNumberTriviaNumberResponseClosure?(number, completion)
+  }
+  
+  // MARK: - getRandomNumberTrivia
+  
+  var getRandomNumberTriviaResponseCallsCount = 0
+  var getRandomNumberTriviaResponseCalled: Bool {
+    getRandomNumberTriviaResponseCallsCount > 0
+  }
+  var getRandomNumberTriviaResponseReceivedResponse: NumberTriviaResponse?
+  var getRandomNumberTriviaResponseReceivedInvocations: [NumberTriviaResponse] = []
+  var getRandomNumberTriviaResponseClosure: ((@escaping NumberTriviaResponse) -> Void)?
+  
+  func getRandomNumberTrivia(completion: @escaping NumberTriviaResponse) {
+    getRandomNumberTriviaResponseCallsCount += 1
+    getRandomNumberTriviaResponseReceivedResponse = completion
+    getRandomNumberTriviaResponseReceivedInvocations.append(completion)
+    getRandomNumberTriviaResponseClosure?(completion)
+  }
+}
+
+
+
 // MARK: - NumberTriviaRemoteDataSourceMock -
 
 final class NumberTriviaRemoteDataSourceMock: NumberTriviaRemoteDataSource {

@@ -33,9 +33,9 @@ final class NumberTriviaRepositoryImplementation: NumberTriviaRepository {
           let numberTrivia = NumberTrivia(number: model.number, text: model.text)
           self.localDataSource.cache(numberTrivia: model) { }
           completion(.success(numberTrivia))
-        default: break
+        case .failure:
+          completion(.failure(.basic))
       }
-      
     }
   }
 

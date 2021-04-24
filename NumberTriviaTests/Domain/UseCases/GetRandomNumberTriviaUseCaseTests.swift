@@ -13,7 +13,6 @@ class GetRandomNumberTriviaUseCaseTests: XCTestCase {
   
   private var tNumberTrivia: NumberTrivia!
   private var useCase: GetRandomNumberTriviaUseCase!
-  private var result: Result<NumberTrivia, NumberTriviaError>?
   private var mockNumberTriviaRepository: NumberTriviaRepositoryMock!
   
   override func setUpWithError() throws {
@@ -23,32 +22,26 @@ class GetRandomNumberTriviaUseCaseTests: XCTestCase {
   }
   
   override func tearDownWithError() throws {
-    result = nil
     useCase = nil
     tNumberTrivia = nil
     mockNumberTriviaRepository = nil
   }
   
   func testSutShouldGetNumberTriviaFromRepository() {
-    // Given
     let expectation = expectation(description: #function)
+    mockNumberTriviaRepository.getRandomNumberTriviaResponseClosure = { completion in
+      let numberTrivia = NumberTrivia(number: 1, text: "test")
+      completion(.success(numberTrivia))
+    }
     
-    // When
-    useCase(params: NoParam()) { self.result = $0 }
+    useCase(params: NoParam()) { _ in }
     
-    // Then
-    XCTAssertEqual(mockNumberTriviaRepository.numberTrivia, tNumberTrivia)
     XCTAssertEqual(mockNumberTriviaRepository.getRandomNumberTriviaResponseCalled, true)
     XCTAssertEqual(mockNumberTriviaRepository.getRandomNumberTriviaResponseCallsCount, 1)
     
-    // When
     useCase(params: NoParam()) { _ in expectation.fulfill() }
     
-    // Then
     waitForExpectations(timeout: 1)
-    
-    XCTAssertEqual(result, .success(tNumberTrivia))
-    XCTAssertEqual(mockNumberTriviaRepository.response, .success(tNumberTrivia))
     XCTAssertEqual(mockNumberTriviaRepository.getRandomNumberTriviaResponseCallsCount, 2)
   }
   

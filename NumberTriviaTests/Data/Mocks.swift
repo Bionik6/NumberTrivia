@@ -48,18 +48,15 @@ final class NumberTriviaRemoteDataSourceMock: NumberTriviaRemoteDataSource {
   var getConcreteNumberTriviaNumberCompletionCalled: Bool {
     getConcreteNumberTriviaNumberCompletionCallsCount > 0
   }
-  var getConcreteNumberTriviaNumberCompletionReceivedArguments: (number: Double, completion: NumberTriviaRemoteResult)?
+  var getConcreteNumberTriviaNumberCompletionReceivedArguments: (number: Double, completion: NumberTriviaRemoteResult)!
   var getConcreteNumberTriviaNumberCompletionReceivedInvocations: [(number: Double, completion: NumberTriviaRemoteResult)] = []
-  var getConcreteNumberTriviaNumberCompletionClosure: ((Double, @escaping NumberTriviaRemoteResult) -> Void)?
+  var getConcreteNumberTriviaNumberCompletionClosure: ((Double, @escaping NumberTriviaRemoteResult) -> Void)!
   
   func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaRemoteResult) {
     getConcreteNumberTriviaNumberCompletionCallsCount += 1
     getConcreteNumberTriviaNumberCompletionReceivedArguments = (number: number, completion: completion)
     getConcreteNumberTriviaNumberCompletionReceivedInvocations.append((number: number, completion: completion))
     getConcreteNumberTriviaNumberCompletionClosure?(number, completion)
-    
-    let numberTriviaModel = NumberTriviaModel(number: 1.0, text: "hello")
-    completion(.success(numberTriviaModel))
   }
 }
 

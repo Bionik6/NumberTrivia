@@ -7,7 +7,13 @@
 
 import Foundation
 
+enum NumberTriviaResponseError: LocalizedError {
+  case serverFailure
+}
+
+typealias NumberTriviaRemoteResult = (Result<NumberTriviaModel, NumberTriviaResponseError>) -> ()
+
 protocol NumberTriviaRemoteDataSource {
-  func getRandomNumberTrivia(response: @escaping (NumberTriviaModel) -> ())
-  func getConcreteNumberTrivia(number: Double, response: @escaping (NumberTriviaModel) -> ())
+  func getRandomNumberTrivia(completion: @escaping NumberTriviaRemoteResult)
+  func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaRemoteResult)
 }

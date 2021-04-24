@@ -8,28 +8,35 @@
 import Foundation
 
 final class NumberTriviaRepositoryImplementation: NumberTriviaRepository {
-  
+
   private(set) var networkInfo: NetworkInfo
   private(set) var remoteDataSource: NumberTriviaRemoteDataSource
   private(set) var localDataSource: NumberTriviaLocalDataSource
-  
+
   init(networkInfo: NetworkInfo,
        remoteDataSource: NumberTriviaRemoteDataSource,
        localDataSource: NumberTriviaLocalDataSource)
   {
     self.networkInfo = networkInfo
-    self.remoteDataSource = remoteDataSource
     self.localDataSource = localDataSource
+    self.remoteDataSource = remoteDataSource
   }
-  
+
   func getRandomNumberTrivia(completion: @escaping NumberTriviaResponse) {
-    
+
   }
-  
+
   func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaResponse) {
-    completion(.success(NumberTrivia(number: 1, text: "hello")))
+    remoteDataSource.getConcreteNumberTrivia(number: number) { result in
+      switch result {
+        case .success(let model):
+          let numberTrivia = NumberTrivia(number: model.number, text: model.text)
+          self.localDataSource.cache(numberTrivia: model) { }
+          completion(.success(numberTrivia))
+        default: break
+      }
+      
+    }
   }
-  
+
 }
-
-

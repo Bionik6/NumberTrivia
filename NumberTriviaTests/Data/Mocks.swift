@@ -11,9 +11,8 @@ import Foundation
 // MARK: - NetworkInfoMock -
 
 final class NetworkInfoMock: NetworkInfo {
-  
+
   // MARK: - isConnected
-  
   var isConnected: Bool {
     get { underlyingIsConnected }
     set(value) { underlyingIsConnected = value }
@@ -28,46 +27,50 @@ final class NumberTriviaRemoteDataSourceMock: NumberTriviaRemoteDataSource {
   
   // MARK: - getRandomNumberTrivia
   
-  var getRandomNumberTriviaResponseCallsCount = 0
-  var getRandomNumberTriviaResponseCalled: Bool {
-    getRandomNumberTriviaResponseCallsCount > 0
+  var getRandomNumberTriviaCompletionCallsCount = 0
+  var getRandomNumberTriviaCompletionCalled: Bool {
+    getRandomNumberTriviaCompletionCallsCount > 0
   }
-  var getRandomNumberTriviaResponseReceivedResponse: ((NumberTriviaModel) -> ())?
-  var getRandomNumberTriviaResponseReceivedInvocations: [((NumberTriviaModel) -> ())] = []
-  var getRandomNumberTriviaResponseClosure: ((@escaping (NumberTriviaModel) -> ()) -> Void)?
+  var getRandomNumberTriviaCompletionReceivedCompletion: (NumberTriviaRemoteResult)?
+  var getRandomNumberTriviaCompletionReceivedInvocations: [(NumberTriviaRemoteResult)] = []
+  var getRandomNumberTriviaCompletionClosure: ((@escaping NumberTriviaRemoteResult) -> Void)?
   
-  func getRandomNumberTrivia(response: @escaping (NumberTriviaModel) -> ()) {
-    getRandomNumberTriviaResponseCallsCount += 1
-    getRandomNumberTriviaResponseReceivedResponse = response
-    getRandomNumberTriviaResponseReceivedInvocations.append(response)
-    getRandomNumberTriviaResponseClosure?(response)
+  func getRandomNumberTrivia(completion: @escaping NumberTriviaRemoteResult) {
+    getRandomNumberTriviaCompletionCallsCount += 1
+    getRandomNumberTriviaCompletionReceivedCompletion = completion
+    getRandomNumberTriviaCompletionReceivedInvocations.append(completion)
+    getRandomNumberTriviaCompletionClosure?(completion)
   }
   
   // MARK: - getConcreteNumberTrivia
   
-  var getConcreteNumberTriviaNumberResponseCallsCount = 0
-  var getConcreteNumberTriviaNumberResponseCalled: Bool {
-    getConcreteNumberTriviaNumberResponseCallsCount > 0
+  var getConcreteNumberTriviaNumberCompletionCallsCount = 0
+  var getConcreteNumberTriviaNumberCompletionCalled: Bool {
+    getConcreteNumberTriviaNumberCompletionCallsCount > 0
   }
-  var getConcreteNumberTriviaNumberResponseReceivedArguments: (number: Double, response: (NumberTriviaModel) -> ())?
-  var getConcreteNumberTriviaNumberResponseReceivedInvocations: [(number: Double, response: (NumberTriviaModel) -> ())] = []
-  var getConcreteNumberTriviaNumberResponseClosure: ((Double, @escaping (NumberTriviaModel) -> ()) -> Void)?
+  var getConcreteNumberTriviaNumberCompletionReceivedArguments: (number: Double, completion: NumberTriviaRemoteResult)?
+  var getConcreteNumberTriviaNumberCompletionReceivedInvocations: [(number: Double, completion: NumberTriviaRemoteResult)] = []
+  var getConcreteNumberTriviaNumberCompletionClosure: ((Double, @escaping NumberTriviaRemoteResult) -> Void)?
   
-  func getConcreteNumberTrivia(number: Double, response: @escaping (NumberTriviaModel) -> ()) {
-    getConcreteNumberTriviaNumberResponseCallsCount += 1
-    getConcreteNumberTriviaNumberResponseReceivedArguments = (number: number, response: response)
-    getConcreteNumberTriviaNumberResponseReceivedInvocations.append((number: number, response: response))
-    getConcreteNumberTriviaNumberResponseClosure?(number, response)
+  func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaRemoteResult) {
+    getConcreteNumberTriviaNumberCompletionCallsCount += 1
+    getConcreteNumberTriviaNumberCompletionReceivedArguments = (number: number, completion: completion)
+    getConcreteNumberTriviaNumberCompletionReceivedInvocations.append((number: number, completion: completion))
+    getConcreteNumberTriviaNumberCompletionClosure?(number, completion)
+    
+    let numberTriviaModel = NumberTriviaModel(number: 1.0, text: "hello")
+    completion(.success(numberTriviaModel))
   }
 }
+
 
 
 // MARK: - NumberTriviaLocalDataSourceMock -
 
 final class NumberTriviaLocalDataSourceMock: NumberTriviaLocalDataSource {
-  
+
   // MARK: - getLastNumberTrivia
-  
+
   var getLastNumberTriviaCompletionCallsCount = 0
   var getLastNumberTriviaCompletionCalled: Bool {
     getLastNumberTriviaCompletionCallsCount > 0
@@ -75,16 +78,16 @@ final class NumberTriviaLocalDataSourceMock: NumberTriviaLocalDataSource {
   var getLastNumberTriviaCompletionReceivedCompletion: ((Result<NumberTriviaModel, CachingError>) -> ())?
   var getLastNumberTriviaCompletionReceivedInvocations: [((Result<NumberTriviaModel, CachingError>) -> ())] = []
   var getLastNumberTriviaCompletionClosure: ((@escaping (Result<NumberTriviaModel, CachingError>) -> ()) -> Void)?
-  
+
   func getLastNumberTrivia(completion: @escaping (Result<NumberTriviaModel, CachingError>) -> ()) {
     getLastNumberTriviaCompletionCallsCount += 1
     getLastNumberTriviaCompletionReceivedCompletion = completion
     getLastNumberTriviaCompletionReceivedInvocations.append(completion)
     getLastNumberTriviaCompletionClosure?(completion)
   }
-  
+
   // MARK: - cache
-  
+
   var cacheNumberTriviaCompletionCallsCount = 0
   var cacheNumberTriviaCompletionCalled: Bool {
     cacheNumberTriviaCompletionCallsCount > 0
@@ -92,7 +95,7 @@ final class NumberTriviaLocalDataSourceMock: NumberTriviaLocalDataSource {
   var cacheNumberTriviaCompletionReceivedArguments: (numberTrivia: NumberTriviaModel, completion: () -> ())?
   var cacheNumberTriviaCompletionReceivedInvocations: [(numberTrivia: NumberTriviaModel, completion: () -> ())] = []
   var cacheNumberTriviaCompletionClosure: ((NumberTriviaModel, @escaping () -> ()) -> Void)?
-  
+
   func cache(numberTrivia: NumberTriviaModel, completion: @escaping () -> ()) {
     cacheNumberTriviaCompletionCallsCount += 1
     cacheNumberTriviaCompletionReceivedArguments = (numberTrivia: numberTrivia, completion: completion)

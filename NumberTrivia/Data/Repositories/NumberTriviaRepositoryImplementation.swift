@@ -23,7 +23,20 @@ final class NumberTriviaRepositoryImplementation: NumberTriviaRepository {
   }
 
   func getRandomNumberTrivia(completion: @escaping NumberTriviaResponse) {
-
+    guard networkInfo.isConnected else {
+      localDataSource.getLastNumberTrivia { response in
+        if case .success(let model) = response { completion(.success(NumberTrivia(number: model.number, text: model.text))) }
+        if case .failure(let error) = response { if error == .noDataPresent { completion(.failure(.noCacheDataPresent)) } }
+      }
+      return
+    }
+    remoteDataSource.getRandomNumberTrivia { response in
+      if case .success(let model) = response {
+        self.localDataSource.cache(numberTrivia: model) { }
+        completion(.success(NumberTrivia(number: model.number, text: model.text)))
+      }
+      if case .failure = response { completion(.failure(.basic)) }
+    }
   }
 
   func getConcreteNumberTrivia(number: Double, completion: @escaping NumberTriviaResponse) {
@@ -39,7 +52,7 @@ final class NumberTriviaRepositoryImplementation: NumberTriviaRepository {
         self.localDataSource.cache(numberTrivia: model) { }
         completion(.success(NumberTrivia(number: model.number, text: model.text)))
       }
-      if case .failure(_) = response { completion(.failure(.basic)) }
+      if case .failure = response { completion(.failure(.basic)) }
     }
   }
 

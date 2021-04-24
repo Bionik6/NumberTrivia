@@ -331,6 +331,8 @@
 			dependencies = (
 			);
 			name = NumberTrivia;
+			packageProductDependencies = (
+			);
 			productName = NumberTrivia;
 			productReference = 4016A4F52630739400018420 /* NumberTrivia.app */;
 			productType = "com.apple.product-type.application";
@@ -349,6 +351,8 @@
 				4016A5082630739400018420 /* PBXTargetDependency */,
 			);
 			name = NumberTriviaTests;
+			packageProductDependencies = (
+			);
 			productName = NumberTriviaTests;
 			productReference = 4016A5062630739400018420 /* NumberTriviaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -380,6 +384,8 @@
 				Base,
 			);
 			mainGroup = 4016A4EC2630739400018420;
+			packageReferences = (
+			);
 			productRefGroup = 4016A4F62630739400018420 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -11,13 +11,22 @@ import Foundation
 // MARK: - NetworkInfoMock -
 
 final class NetworkInfoMock: NetworkInfo {
-
   // MARK: - isConnected
-  var isConnected: Bool {
-    get { underlyingIsConnected }
-    set(value) { underlyingIsConnected = value }
+  
+  var isConnectedCallsCount = 0
+  var isConnectedCalled: Bool {
+    isConnectedCallsCount > 0
   }
-  private var underlyingIsConnected: Bool!
+  var isConnectedReceivedConnected: ((Bool) -> ())?
+  var isConnectedReceivedInvocations: [((Bool) -> ())] = []
+  var isConnectedClosure: ((@escaping (Bool) -> ()) -> Void)?
+  
+  func isConnected(_ connected: @escaping (Bool) -> ()) {
+    isConnectedCallsCount += 1
+    isConnectedReceivedConnected = connected
+    isConnectedReceivedInvocations.append(connected)
+    isConnectedClosure?(connected)
+  }
 }
 
 

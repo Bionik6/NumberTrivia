@@ -20,6 +20,7 @@
 		4016A4FD2630739400018420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FC2630739400018420 /* Assets.xcassets */; };
 		4016A5002630739400018420 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FF2630739400018420 /* Preview Assets.xcassets */; };
 		4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A52D26307B1400018420 /* NumberTrivia.swift */; };
+		404C3EC426354BAE00D0402F /* InternetConnectionCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C3EC326354BAE00D0402F /* InternetConnectionCheckerTests.swift */; };
 		4052B84326307ECF004A88A5 /* NumberTriviaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */; };
 		4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */; };
 		4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84B26308A77004A88A5 /* NumberTriviaError.swift */; };
@@ -60,6 +61,7 @@
 		4016A5062630739400018420 /* NumberTriviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTriviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016A50C2630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4016A52D26307B1400018420 /* NumberTrivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTrivia.swift; sourceTree = "<group>"; };
+		404C3EC326354BAE00D0402F /* InternetConnectionCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionCheckerTests.swift; sourceTree = "<group>"; };
 		4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepository.swift; sourceTree = "<group>"; };
 		4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaTests.swift; sourceTree = "<group>"; };
 		4052B84B26308A77004A88A5 /* NumberTriviaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaError.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		4016A4F72630739400018420 /* NumberTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				404C3EC126354B2300D0402F /* Infrastructure */,
 				4052B84A26308A69004A88A5 /* Core */,
 				4016A52526307A0D00018420 /* Presentation */,
 				4016A52426307A0900018420 /* Data */,
@@ -161,6 +164,7 @@
 		4016A5092630739400018420 /* NumberTriviaTests */ = {
 			isa = PBXGroup;
 			children = (
+				404C3EC226354B3400D0402F /* Infrastructure */,
 				40164C352631D3E100C90F61 /* Fixtures */,
 				4052B8452630829F004A88A5 /* Data */,
 				4052B8442630829A004A88A5 /* Domain */,
@@ -252,6 +256,21 @@
 				40164C332631CFD300C90F61 /* GetRandomNumberTriviaUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		404C3EC126354B2300D0402F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		404C3EC226354B3400D0402F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				404C3EC326354BAE00D0402F /* InternetConnectionCheckerTests.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		4052B8442630829A004A88A5 /* Domain */ = {
@@ -442,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404C3EC426354BAE00D0402F /* InternetConnectionCheckerTests.swift in Sources */,
 				40164C3D2631DD6500C90F61 /* FixtureLoader.swift in Sources */,
 				40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */,
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,

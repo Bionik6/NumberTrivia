@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkInfo {
-  var isConnected: Bool { get }
+  func isConnected(_ connected: @escaping (Bool) -> ())
 }

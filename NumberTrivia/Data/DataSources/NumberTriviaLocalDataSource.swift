@@ -29,10 +29,10 @@ class UserDefaultsLocalDataSource: NumberTriviaLocalDataSource {
   
   func getLastNumberTrivia(completion: @escaping (Result<NumberTriviaModel, CachingError>) -> ()) {
     let data = userDefaults.data(forKey: Self.key)
+    if data == nil { completion(.failure(.noDataPresent)) }
     if let data = data, let model = try? JSONDecoder().decode(NumberTriviaModel.self, from: data) {
       completion(.success(model))
     }
-    if data == nil { completion(.failure(.noDataPresent)) }
   }
   
   func cache(numberTrivia: NumberTriviaModel, completion: @escaping () -> ()) {

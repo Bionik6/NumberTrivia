@@ -21,3 +21,4 @@ struct NumberTriviaModel: NumberTriviaProtocol, Codable {
   }
   
 }
+ 

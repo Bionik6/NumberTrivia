@@ -21,6 +21,7 @@
 		4016A5002630739400018420 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4016A4FF2630739400018420 /* Preview Assets.xcassets */; };
 		4016A52E26307B1400018420 /* NumberTrivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016A52D26307B1400018420 /* NumberTrivia.swift */; };
 		404C3EC426354BAE00D0402F /* InternetConnectionCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C3EC326354BAE00D0402F /* InternetConnectionCheckerTests.swift */; };
+		404C3EC6263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C3EC5263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift */; };
 		4052B84326307ECF004A88A5 /* NumberTriviaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */; };
 		4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */; };
 		4052B84C26308A77004A88A5 /* NumberTriviaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052B84B26308A77004A88A5 /* NumberTriviaError.swift */; };
@@ -62,6 +63,7 @@
 		4016A50C2630739400018420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4016A52D26307B1400018420 /* NumberTrivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTrivia.swift; sourceTree = "<group>"; };
 		404C3EC326354BAE00D0402F /* InternetConnectionCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionCheckerTests.swift; sourceTree = "<group>"; };
+		404C3EC5263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaLocalDataSourceTests.swift; sourceTree = "<group>"; };
 		4052B84226307ECF004A88A5 /* NumberTriviaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepository.swift; sourceTree = "<group>"; };
 		4052B848263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConcreteNumberTriviaTests.swift; sourceTree = "<group>"; };
 		4052B84B26308A77004A88A5 /* NumberTriviaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaError.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				40637B742633312500CD3F8D /* Mocks.swift */,
 				40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */,
 				40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */,
+				404C3EC5263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			files = (
 				404C3EC426354BAE00D0402F /* InternetConnectionCheckerTests.swift in Sources */,
 				40164C3D2631DD6500C90F61 /* FixtureLoader.swift in Sources */,
+				404C3EC6263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift in Sources */,
 				40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */,
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
 				40637B73263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift in Sources */,

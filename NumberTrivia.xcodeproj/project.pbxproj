@@ -32,6 +32,7 @@
 		40637B712633297500CD3F8D /* NumberTriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B702633297500CD3F8D /* NumberTriviaModel.swift */; };
 		40637B73263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */; };
 		40637B752633312500CD3F8D /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40637B742633312500CD3F8D /* Mocks.swift */; };
+		40FCD1B726370BA6003FBA01 /* NumberTriviaRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FCD1B626370BA6003FBA01 /* NumberTriviaRemoteDataSourceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		40637B702633297500CD3F8D /* NumberTriviaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaModel.swift; sourceTree = "<group>"; };
 		40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRepositoryImplementationTests.swift; sourceTree = "<group>"; };
 		40637B742633312500CD3F8D /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		40FCD1B626370BA6003FBA01 /* NumberTriviaRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTriviaRemoteDataSourceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				40164C382631D47800C90F61 /* NumberTriviaModelTests.swift */,
 				40637B72263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift */,
 				404C3EC5263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift */,
+				40FCD1B626370BA6003FBA01 /* NumberTriviaRemoteDataSourceTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				40164C3D2631DD6500C90F61 /* FixtureLoader.swift in Sources */,
 				404C3EC6263579B700D0402F /* NumberTriviaLocalDataSourceTests.swift in Sources */,
 				40164C392631D47800C90F61 /* NumberTriviaModelTests.swift in Sources */,
+				40FCD1B726370BA6003FBA01 /* NumberTriviaRemoteDataSourceTests.swift in Sources */,
 				4052B849263082D6004A88A5 /* GetConcreteNumberTriviaTests.swift in Sources */,
 				40637B73263330B300CD3F8D /* NumberTriviaRepositoryImplementationTests.swift in Sources */,
 				40164C302631940B00C90F61 /* GetRandomNumberTriviaUseCaseTests.swift in Sources */,

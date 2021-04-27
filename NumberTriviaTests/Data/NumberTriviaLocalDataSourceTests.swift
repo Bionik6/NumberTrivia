@@ -38,22 +38,35 @@ class NumberTriviaLocalDataSourceTests: XCTestCase {
   }
   
   func test_sut_can_cache_data() {
-    let firstPromise = XCTestExpectation(description: "firstPromise")
-    let secondPromise = XCTestExpectation(description: "secondPromise")
+    let promise = XCTestExpectation(description: #function)
+    promise.expectedFulfillmentCount = 2
     let model: NumberTriviaModel = JSONLoader.loadJsonData(for: "Trivia")
-
+    
     sut.cache(numberTrivia: model) {
-      firstPromise.fulfill()
+      promise.fulfill()
     }
     
     sut.getLastNumberTrivia { response in
-      secondPromise.fulfill()
+      promise.fulfill()
       let responseModel = try? response.get()
       XCTAssertNotNil(responseModel)
       XCTAssertEqual(model.text, responseModel?.text)
     }
     
-    wait(for: [firstPromise, secondPromise], timeout: 1.0)
+    wait(for: [promise], timeout: 1.0)
+  }
+  
+  func test_sut_gets_data_when_there_is_one() {
+    let promise = XCTestExpectation(description: #function)
+    
+    sut.getLastNumberTrivia { response in
+      if case .failure(let error) = response {
+        XCTAssertEqual(error, .noDataPresent)
+      }
+      promise.fulfill()
+    }
+    
+    wait(for: [promise], timeout: 1.0)
   }
   
 }
